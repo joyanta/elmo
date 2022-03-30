@@ -1,0 +1,108 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sideNav class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'">
+    <mat-toolbar>Menu</mat-toolbar>
+    <app-sidenav-list (sideNavClose)="sideNav.close()"></app-sidenav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+
+
+    <!-- <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="sideNav.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Elmo</span>
+    </mat-toolbar> -->
+
+
+
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <span>Elmo</span>
+      </mat-toolbar-row>
+
+      <mat-toolbar-row>
+        <div>
+          <button mat-button [matMenuTriggerFor]="dayCareMenu">Daycare</button>
+          <mat-menu #dayCareMenu="matMenu">
+            <button mat-menu-item>All Daycares</button>
+            <button mat-menu-item>Infant Daycares</button>
+            <button mat-menu-item>Toddler Daycares</button>
+            <button mat-menu-item>In-Home Daycares</button>
+            <button mat-menu-item>Day Care Daycares</button>
+            <button mat-menu-item>24-Hour Daycares</button>
+            <button mat-menu-item>Drop-In Daycares</button>
+            <button mat-menu-item>Weekend Daycares</button>
+            <button mat-menu-item>Part Time Daycares</button>
+            <button mat-menu-item>Overnight Daycares</button>
+          </mat-menu>
+        </div>
+        <div>
+          <button mat-button [matMenuTriggerFor]="preSchoolMenu">Preschool</button>
+          <mat-menu #preSchoolMenu="matMenu">
+            <button mat-menu-item>All Preschools</button>
+            <button mat-menu-item>Free Preschools</button>
+            <button mat-menu-item>Montessori Schools</button>
+            <button mat-menu-item>Muslim Schools</button>
+            <button mat-menu-item>Jewish Schools</button>
+            <button mat-menu-item>Church Schools</button>
+            <button mat-menu-item>Hindu Schools</button>
+            <button mat-menu-item>Bilingual Schools</button>
+            <button mat-menu-item>Nursery Schools</button>
+          </mat-menu>
+        </div>
+        <div>
+          <button mat-button [matMenuTriggerFor]="childCareMenu">Child Care</button>
+          <mat-menu #childCareMenu="matMenu">
+            <button mat-menu-item>All Childcare</button>
+            <button mat-menu-item>Emergency Childcare</button>
+            <button mat-menu-item>Childcare Centres</button>
+            <button mat-menu-item>Overnight Childcare</button>
+            <button mat-menu-item>In-Home Childcare</button>
+            <button mat-menu-item>Infant Childcare</button>
+            <button mat-menu-item>Drop-In Childcare</button>
+            <button mat-menu-item>Weekend Childcare</button>
+            <button mat-menu-item>24-Hour Childcare</button>
+          </mat-menu>
+        </div>
+
+        <div>
+          <button mat-button [matMenuTriggerFor]="schoolAgeMenu">School Age</button>
+          <mat-menu #schoolAgeMenu="matMenu">
+            <button mat-menu-item>All School-Age Care</button>
+            <button mat-menu-item>Before School Care</button>
+            <button mat-menu-item>After School Care</button>
+          </mat-menu>
+        </div>
+        <div>
+          <button mat-button [matMenuTriggerFor]="onlineClassesMenu">Online Classes</button>
+          <mat-menu #onlineClassesMenu="matMenu">
+            <button mat-menu-item>Online Classes For Kids</button>
+          </mat-menu>
+        </div>
+        <div>
+          <button mat-button [matMenuTriggerFor]="summerCareMenu">Summer Care</button>
+          <mat-menu #summerCareMenu="matMenu">
+            <button mat-menu-item>Summer Care Near Me</button>
+          </mat-menu>
+        </div>
+        <div>
+          <button mat-button [matMenuTriggerFor]="providersMenu">Providers</button>
+          <mat-menu #providersMenu="matMenu">
+            <button mat-menu-item>Claim your page</button>
+          </mat-menu>
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+
+
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
